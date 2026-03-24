@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootRush | World's #1 Shoe Platform</title>
+    <meta name="description" content="FootRush - Premium footwear from the world's best brands. Shop running, sneakers, casual, lifestyle, formal and sports shoes.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ════════════════════════════ SPLASH -->
+<div id="splash">
+    <div class="sp-hero-text">
+        <h1 class="sp-title">FOOTRUSH</h1>
+        <p class="sp-quote">"Stay ahead, stay swift – every step is a story."</p>
+    </div>
+    <div class="sp-motion">Fastest. Freshest. Finest shoes on Earth.</div>
+    <button class="btn btn-g" onclick="FR.go('auth')" style="margin-top:22px;">Enter FootRush</button>
+</div>
+
+<!-- ════════════════════════════ TOP NAV -->
+<header id="top-nav">
+    <div class="wrap nav-in">
+        <div class="n-brand" onclick="FR.go('home')">
+            <img class="n-logo-visible" src="assets/footrush-shoecare.png" alt="FootRush Shoecare"
+                onerror="this.outerHTML='<span style=font-size:18px>👟</span>'">
+            <span class="n-brand-text">FOOTRUSH</span>
+        </div>
+        <div class="n-sb">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search shoes, brands, styles…" id="g-srch" oninput="FR.gSearch(this.value)" onkeydown="if(event.key==='Enter')FR.gSearch(this.value,true)">
+        </div>
+        <div class="n-acts">
+            <button class="n-btn" id="theme-btn" title="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+            <button class="n-btn" onclick="FR.go('wishlist')" title="Wishlist" id="wish-nav-btn"><i class="fa-regular fa-heart"></i></button>
+            <button class="n-btn" onclick="FR.go('cart')" title="Cart" style="position:relative">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="n-badge" id="cart-badge">0</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- PROMO BAR -->
+<div class="promo" id="promo-bar">🔥 FREE SHIPPING on orders above $100 · Code <strong>RUSH15</strong> → 15% off! <span onclick="this.parentElement.style.display='none'">✕</span></div>
+
+<!-- ════════════════════════════ PAGES -->
+<main>
+
+<!-- ── AUTH ── -->
+<div id="auth-pg">
+    <div class="auth-card">
+        <div class="auth-r">
+            <h2 id="a-tit">Welcome back</h2>
+            <p id="a-sub" style="color:var(--muted);font-size:14px">Sign in to your FootRush account.</p>
+            <div class="af">
+                <div id="a-nw" class="iw" style="display:none">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="a-n" class="ai" placeholder="Full Name">
+                </div>
+                <div class="iw">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="a-e" class="ai" placeholder="Email address">
+                </div>
+                <div class="iw">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="a-p" class="ai" placeholder="Password">
+                </div>
+                <div id="a-er" class="aer"><i class="fa-solid fa-circle-exclamation"></i><span id="a-erm"></span></div>
+                <button class="btn btn-g btn-full" onclick="FR.auth()">
+                    <span id="a-btn">Login</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="div">or continue with</div>
+                <button class="btn btn-gg" onclick="FR.gAuth()">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" width="18" alt="G"> Google
+                </button>
+                <p class="at"><span id="a-sl">Don't have an account?</span>
+                    <a href="#" onclick="FR.toggleMode(event)" id="a-slnk">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── HOME ── -->
+<section id="home-pg" class="pg">
+    <div class="wrap">
+        <div class="hero">
+            <div class="hero-l">
+                <img class="h-logo-bg" src="assets/logo.png" alt="" onerror="this.style.display='none'">
+                <span class="h-tag"><i class="fa-solid fa-fire"></i> #1 Shoe Platform · 2026</span>
+                <h1 class="h1">Every step<br>defines your<br><em>story.</em></h1>
+                <p class="h-sub">Premium footwear from 15+ global brands. 200+ handpicked styles delivered to your door.</p>
+                <div class="h-btns">
+                    <button class="btn btn-g" onclick="FR.go('catalog','all')">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn btn-line" onclick="FR.go('orders')">Track Order</button>
+                </div>
+                <div class="h-stats">
+                    <div class="h-stat"><strong>200+</strong><span>Collections</span></div>
+                    <div class="h-stat"><strong>15+</strong><span>Top Brands</span></div>
+                    <div class="h-stat"><strong>50K+</strong><span>Happy Buyers</span></div>
+                </div>
+            </div>
+            <div class="hero-r">
+                <img class="h-shoe"
+                    src="https://images.pexels.com/photos/2529157/pexels-photo-2529157.jpeg?auto=compress&cs=tinysrgb&w=640"
+                    alt="Featured Shoe">
+                <div class="h-b1">
+                    <span>⭐ 4.9 Rating</span>
+                    <strong>50K+ Orders</strong>
+                </div>
+                <div class="h-b2">🔥 Limited Drop</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="sec-alt">
+        <div class="wrap">
+            <div class="sh"><h2>Shop by Category</h2><button class="btn btn-line btn-sm" onclick="FR.go('catalog','all')">View All</button></div>
+            <div class="cat-grid" id="cat-grid"></div>
+        </div>
+    </div>
+
+    <!-- Trending -->
+    <div class="wrap sec">
+        <div class="sh"><h2>🔥 Trending Now</h2><button class="btn btn-line btn-sm" onclick="FR.go('catalog','trending')">See All</button></div>
+        <div class="pgrid" id="trend-grid"></div>
+    </div>
+
+    <!-- Brands -->
+    <div class="sec-alt">
+        <div class="wrap">
+            <div class="sh"><h2>Top Brands</h2></div>
+            <div class="brand-strip" id="brand-strip"></div>
+        </div>
+    </div>
+
+    <!-- Flash Sale -->
+    <div class="wrap sec">
+        <div class="sh">
+            <h2>⚡ Flash Sale — Ends Soon!</h2>
+            <div style="background:var(--red);color:#fff;padding:8px 18px;border-radius:8px;font-size:14px;font-weight:700" id="countdown">Loading...</div>
+        </div>
+        <div class="pgrid" id="flash-grid"></div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="nl">
+        <div class="wrap">
+            <h2>Get 15% Off Your First Order</h2>
+            <p>Join 50,000+ sneaker lovers. First access to drops, deals & exclusive styles.</p>
+            <div class="nl-f">
+                <input type="email" placeholder="Your email address" id="nl-email">
+                <button class="btn btn-yellow" onclick="FR.subscribe()">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CATALOG (category / trending / brand / all) ── -->
+<section id="catalog-pg" class="pg">
+    <div id="cat-bar-hero" class="cat-hero"><div class="wrap"><h1 id="cat-title-h">Catalog</h1><p id="cat-title-sub">Loading…</p></div></div>
+    <div id="cat-toolbar" class="cat-toolbar"><div class="wrap toolbar-in" id="toolbar-in"></div></div>
+    <div class="wrap" style="padding-top:28px;padding-bottom:0">
+        <div class="cat-content-grid">
+            <aside class="side-filters" id="side-filters"></aside>
+            <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
+                    <span id="cat-count" style="font-size:13px;color:var(--muted)"></span>
+                    <select class="filter-pill" id="cat-sort" onchange="FR.renderCatalog()" style="border-radius:99px;padding:8px 16px">
+                        <option value="latest">Newest First</option>
+                        <option value="low">Price: Low → High</option>
+                        <option value="high">Price: High → Low</option>
+                        <option value="popular">Top Rated</option>
+                    </select>
+                </div>
+                <div class="pgrid" id="cat-products"></div>
+                <div style="margin-top:32px;text-align:center" id="load-more-wrap">
+                    <button class="btn btn-line" id="load-more-btn" onclick="FR.loadMore()">Load More <i class="fa-solid fa-chevron-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SEARCH ── -->
+<section id="search-pg" class="pg wrap" style="padding-top:32px">
+    <div style="display:flex;gap:14px;align-items:center;margin-bottom:24px;flex-wrap:wrap">
+        <div style="position:relative;flex:1;max-width:480px">
+            <i class="fa-solid fa-magnifying-glass" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)"></i>
+            <input type="text" style="width:100%;padding:13px 14px 13px 42px;border-radius:12px;border:1.5px solid var(--border);background:var(--w);font-size:15px;font-family:inherit;color:var(--text)" id="s-inp" oninput="renderSearch()" placeholder="Search by name, brand, category…">
+        </div>
+        <span id="s-cnt" style="font-size:13px;color:var(--muted)"></span>
+        <select id="s-sort" class="filter-pill" onchange="renderSearch()" style="border-radius:99px">
+            <option value="latest">Newest</option>
+            <option value="low">Price ↑</option>
+            <option value="high">Price ↓</option>
+            <option value="popular">Popular</option>
+        </select>
+    </div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:28px">
+        <aside class="side-filters" id="s-filters"></aside>
+        <div class="pgrid" id="s-grid"></div>
+    </div>
+</section>
+
+<!-- ── CART ── -->
+<section id="cart-pg" class="pg wrap sec">
+    <h2 style="margin-bottom:32px">Shopping Bag</h2>
+    <div class="cart-lay" id="cart-content"></div>
+</section>
+
+<!-- ── PAYMENT ── -->
+<section id="payment-pg" class="pg wrap sec" id="pay-pg"></section>
+
+<!-- ── ORDERS ── -->
+<section id="orders-pg" class="pg wrap sec">
+    <div class="sh"><h2>My Orders</h2><button class="btn btn-line btn-sm" onclick="FR.go('catalog','all')">Shop More</button></div>
+    <div id="ord-list"></div>
+</section>
+
+<!-- ── PROFILE ── -->
+<section id="profile-pg" class="pg wrap sec">
+    <div class="pro-grid">
+        <aside id="pro-side"></aside>
+        <div id="pro-cont"></div>
+    </div>
+</section>
+
+<!-- ── WISHLIST ── -->
+<section id="wishlist-pg" class="pg wrap sec">
+    <div class="sh"><h2>My Wishlist ❤️</h2><span id="wish-count" style="color:var(--muted);font-size:14px"></span></div>
+    <div class="pgrid" id="wish-grid"></div>
+</section>
+
+</main>
+
+<!-- ════════════════════════════ BOTTOM NAV -->
+<nav id="bot-nav">
+    <div class="bnav-r">
+        <button class="bn-btn on" data-pg="home-pg" onclick="FR.go('home')"><i class="fa-solid fa-house"></i><span>Home</span></button>
+        <button class="bn-btn" data-pg="catalog-pg" onclick="FR.go('catalog','all')"><span style="font-size:22px;line-height:1">👟</span><span>Shop</span></button>
+        <button class="bn-btn" data-pg="cart-pg" onclick="FR.go('cart')" style="position:relative">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="bn-cb" id="bnav-b">0</span>
+            <span>Bag</span>
+        </button>
+        <button class="bn-btn" data-pg="orders-pg" onclick="FR.go('orders')"><i class="fa-solid fa-box"></i><span>Orders</span></button>
+        <button class="bn-btn" data-pg="profile-pg" onclick="FR.go('profile')"><i class="fa-solid fa-user"></i><span>Account</span></button>
+    </div>
+</nav>
+
+<!-- ════════════════════════════ QUICK VIEW MODAL -->
+<div class="overlay" id="qv-ov" onclick="if(event.target===this)FR.closeQV()">
+    <div class="qv-box" id="qv-inner">
+        <button class="qv-close" onclick="FR.closeQV()">✕</button>
+    </div>
+</div>
+
+<!-- ════════════════════════════ FOOTER -->
+<footer id="site-footer">
+    <div class="wrap">
+        <div class="fg">
+            <div>
+                <div class="fb-n" style="display:flex;align-items:center;gap:8px">
+                    <img src="assets/logo.png" width="28" style="border-radius:6px" alt="" onerror="this.style.display='none'">
+                    FOOTRUSH
+                </div>
+                <p style="font-size:14px;color:var(--muted);max-width:280px;line-height:1.7;margin-bottom:16px">World's #1 Shoe Platform. Excellence in every step since 2026.</p>
+                <div class="pay-icons">
+                    <i class="fa-brands fa-cc-visa" style="color:#1a1f71"></i>
+                    <i class="fa-brands fa-cc-mastercard" style="color:#eb001b"></i>
+                    <i class="fa-brands fa-cc-paypal" style="color:#003087"></i>
+                    <i class="fa-brands fa-apple-pay" style="color:var(--text)"></i>
+                </div>
+            </div>
+            <div class="fc-c"><h4>Shop</h4><ul>
+                <li><a href="#" onclick="FR.go('catalog','all')">New Arrivals</a></li>
+                <li><a href="#" onclick="FR.go('catalog','Running')">Running</a></li>
+                <li><a href="#" onclick="FR.go('catalog','Sneakers')">Sneakers</a></li>
+                <li><a href="#" onclick="FR.go('catalog','Sale')">Sale 🔥</a></li>
+            </ul></div>
+            <div class="fc-c"><h4>Support</h4><ul>
+                <li><a href="#" onclick="FR.toast('Shipping policy coming soon!')">Shipping</a></li>
+                <li><a href="#" onclick="FR.toast('Returns policy: 30 days, free!')">Returns</a></li>
+                <li><a href="#" onclick="FR.go('profile')">Contact</a></li>
+                <li><a href="#" onclick="FR.go('profile')">FAQ</a></li>
+            </ul></div>
+            <div class="fc-c"><h4>Follow Us</h4><ul>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i> Twitter / X</a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+            </ul></div>
+        </div>
+        <div class="fb"><span>© 2026 FootRush Shoecare Inc. All rights reserved.</span><span>Privacy · Terms · Sitemap</span></div>
+    </div>
+</footer>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword
+}
+from
+"https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyCGQ6z-IW50HxnotAgDKK4ha3vnvVtFRRQ",
+
+authDomain:"footrush-a9816.firebaseapp.com",
+
+projectId:"footrush-a9816",
+
+storageBucket:"footrush-a9816.firebasestorage.app",
+
+messagingSenderId:"1017241862446",
+
+appId:"1:1017241862446:web:4ba7aa3abd8f0dec1d7abf"
+
+};
+
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+const db=getFirestore(app);
+
+
+// LOGIN
+
+window.firebaseLogin=async function(email,password){
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+)
+
+}
+
+
+// REGISTER
+
+window.firebaseRegister=async function(email,password){
+
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+)
+
+}
+
+// SAVE PROFILE
+window.saveProfileData = async function(){
+
+if(!window.S || !S.user){
+
+alert("Login first");
+
+return;
+
+}
+
+const profile={
+
+email:S.user.email,
+
+name:S.user.name,
+
+phone:"Not added",
+
+dob:"Not added",
+
+size:"10"
+
+};
+
+await addDoc(
+collection(db,"profiles"),
+profile
+);
+
+alert("Profile saved");
+
+}
+
+// SAVE ADDRESS
+window.addNewAddress = async function(){
+
+if(!window.S || !S.user){
+
+alert("Login first");
+
+return;
+
+}
+
+const address={
+
+email:S.user.email,
+
+address:"Chennai Tamil Nadu",
+
+type:"Home"
+
+};
+
+await addDoc(
+collection(db,"addresses"),
+address
+);
+
+alert("Address saved");
+
+}
+
+// SAVE CARD
+window.addNewCard = async function(){
+
+if(!window.S || !S.user){
+
+alert("Login first");
+
+return;
+
+}
+
+const card={
+
+email:S.user.email,
+
+cardType:"Visa",
+
+number:"****4242",
+
+expiry:"12/27"
+
+};
+
+await addDoc(
+collection(db,"cards"),
+card
+);
+
+alert("Card saved");
+
+}
+</script>
+<script src="main.js"></script>
+</body>
+</html>
